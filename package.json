@@ -1,0 +1,7 @@
+{
+  "name": "fb-dashboard",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Levente Löki <leventeloki@gmail.com>",
+  "license": "MIT"
+}
