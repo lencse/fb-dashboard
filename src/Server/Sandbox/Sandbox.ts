@@ -3,7 +3,7 @@ import axios from 'axios'
 export default class Sandbox {
 
     public run(): void {
-        const token = 'EAACEdEose0cBAD3ZAUjhB3t7oqvq6Or5ZBX3bAtgYBpJukmA47ogPTKTSMZCNjZAPSqhHh6h3EPiPHwrjFvSuPkGihbQLl5vqpFEwePTP99Dlm405MjZBwhZAHWLMGexLReJ5qTOfWMYrVRc5kghGchMcdD3Kffn8y4onahnZA4ZA8mMZBOJqUGd6h9A41LkP0lAZD'
+        const token = 'EAACEdEose0cBAHrI2PPtTdh6YOZCtFnWAOvmN0JdfcMgrmXmrUclA2CRZBJKE4Ir1msCSkVcoGyBCsc8bRVv75cDPWH1ZAxLEZChwpsBuor0Vbw7nrBqbIZBnTi8FlxqEC6stikGgL6ghWtmDP1R4TFdpQsfCKZAZA6FSYZAaZC56LGsp9iZBr0sYZC39eiZCz4wP8MZD'
 
         axios.get(`https://graph.facebook.com/v2.12/hvghu/posts?access_token=${token}`).then((response) => {
             response.data.data.map((post) => {

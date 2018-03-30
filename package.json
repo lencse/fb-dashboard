@@ -1,7 +1,7 @@
 {
   "name": "fb-dashboard",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "author": "Levente Löki <leventeloki@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -13,18 +13,20 @@
     "typescript": "^2.8.1"
   },
   "scripts": {
-    "app": "node app.js",
+    "setup-dotenv": "cp .env.example .env",
+    "serve": "node server.js",
     "build": "yarn clean-build && yarn build-typescript",
     "clean-build": "rm -rf build",
     "build-typescript": "tsc -p . --outDir ./build",
     "watch": "yarn clean-build && yarn build-typescript && (yarn watch-typescript)",
     "watch-typescript": "tsc -p . --outDir ./build --watch --pretty",
-    "test": "yarn test-backend",
-    "test-backend": "mocha build/test/Backend",
-    "watch-test-backend": "mocha --watch build/test/Backend",
+    "test": "yarn test-server",
+    "test-backend": "mocha build/test/Server",
+    "watch-test-backend": "mocha --watch build/test/Server",
     "lint": "tslint -c tslint.json src/**/*.ts src/**/**/*.ts test/**/*.ts"
   },
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "dotenv": "^5.0.1"
   }
 }
