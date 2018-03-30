@@ -1,6 +1,8 @@
 import Sandbox from './Sandbox/Sandbox'
+import config from '../Config/config'
 
 export function run() {
-    const fb = new Sandbox()
-    fb.run()
+    console.info(config)
+    // const fb = new Sandbox()
+    // fb.run()
 }
