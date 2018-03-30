@@ -1,5 +1,5 @@
 import Page from '../../Entity/Page/Page'
-import Api from './Api'
+import Api from './WebApi/Api'
 
 export default class GetPageInfo {
 
