@@ -1,4 +1,6 @@
-export default class FacebookPage {
+export default class Page {
+
+    public slug: string
 
     public id: string
 
