@@ -1,3 +1,5 @@
+import ApiConfig from './ApiConfig'
+
 export default class UrlGenerator {
 
     constructor(

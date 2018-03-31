@@ -1,6 +1,6 @@
 import Web from '../FacebookApi/WebApi/Web'
 import AxiosWeb from '../Adapter/FacebookApi/AxiosWeb'
-import AppConfig from '../../Config/Definition/AppConfig'
+import AppConfig from '../Config/Definition/AppConfig'
 import UrlGenerator from '../FacebookApi/WebApi/UrlGenerator'
 import Api from '../FacebookApi/WebApi/Api'
 import MockApi from '../Adapter/FacebookApi/MockApi'

@@ -1,4 +1,4 @@
-interface ApiConfig {
+export default interface ApiConfig {
 
     url: string
 

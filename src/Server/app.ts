@@ -1,4 +1,4 @@
-import config from '../Config/config'
+import config from './Config/config'
 import Dic from './DependencyInjection/Dic'
 
 export function run() {

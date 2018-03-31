@@ -1,4 +1,5 @@
 import PagesConfig from './PagesConfig'
+import ApiConfig from '../../FacebookApi/WebApi/ApiConfig'
 
 export default interface AppConfig {
 
