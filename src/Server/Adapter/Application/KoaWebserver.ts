@@ -3,6 +3,7 @@ import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as json from 'koa-json'
 import DataStore from '../../../Entity/DataStore'
+import * as serve from 'koa-static'
 
 export default class KoaWebserver implements Webserver {
 
@@ -24,6 +25,10 @@ export default class KoaWebserver implements Webserver {
         this.router.get(path, async (ctx, next) => {
             ctx.body = store()
         })
+    }
+
+    public static(dir: string): void {
+        this.koa.use(serve(dir))
     }
 
 }
