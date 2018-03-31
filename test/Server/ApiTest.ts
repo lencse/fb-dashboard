@@ -5,6 +5,8 @@ import MockWeb from './Mock/MockWeb'
 import WebApi from '../../src/Server/Adapter/FacebookApi/WebApi'
 import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
 import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
+import MainPageInfoLoader from '../../src/Server/Loader/MainPageInfoLoader'
+import DataStore from '../../src/Entity/DataStore'
 
 @suite
 export default class ApiTest {
@@ -32,12 +34,21 @@ export default class ApiTest {
         })
     }
 
-    @test public getPageInfo() {
+    @test public pageInfoApi() {
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
         getPageInfo.get('444.hu').then((page) => {
             assert.equal('444.hu', page.slug)
             assert.equal('444', page.name)
+        })
+    }
+
+    @test public mainPageInfoLoader() {
+        const api = new MockApi()
+        const getPageInfo = new PageInfoApi(api)
+        const loader = new MainPageInfoLoader('444.hu', getPageInfo)
+        loader.load(new DataStore()).then((store) => {
+            assert.equal('444', store.mainPage.info.name)
         })
     }
 
