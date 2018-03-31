@@ -1,11 +1,11 @@
-export default class Page {
+export default interface Page {
 
-    public slug: string
+    slug: string
 
-    public id: string
+    id: string
 
-    public name: string
+    name: string
 
-    public profilePic: string
+    profilePic: string
 
 }

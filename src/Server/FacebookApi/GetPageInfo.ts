@@ -6,17 +6,17 @@ export default class GetPageInfo {
     constructor(private api: Api) {}
 
     public get(slug: string): Promise<Page> {
-        const map = new Map<string, string>()
-        const call = this.api.call(`/${slug}`, {fields: 'picture{url},name,id,username'})
-        return call.then((responseData: any) => {
-            const result = new Page()
-            result.name = responseData.name
-            result.id = responseData.id
-            result.slug = responseData.username
-            result.profilePic = responseData.picture.data.url
-            return result
+        return this.api.call(
+            `/${slug}`,
+            {fields: 'picture{url},name,id,username'}
+        ).then((responseData: any) => {
+            return {
+                name: responseData.name,
+                id: responseData.id,
+                slug: responseData.username,
+                profilePic: responseData.picture.data.url
+            }
         })
-
     }
 
 }

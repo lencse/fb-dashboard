@@ -3,6 +3,8 @@ import { assert } from 'chai'
 import UrlGenerator from '../../src/Server/FacebookApi/WebApi/UrlGenerator'
 import MockWeb from './Mock/MockWeb'
 import WebApi from '../../src/Server/Adapter/FacebookApi/WebApi'
+import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
+import GetPageInfo from '../../src/Server/FacebookApi/GetPageInfo'
 
 @suite
 export default class ApiTest {
@@ -27,6 +29,15 @@ export default class ApiTest {
         const api = new WebApi(generator, web)
         api.call('/test', { param1: 'foo', param2: 'bar' }).then((data) => {
             assert.equal(1, data.test)
+        })
+    }
+
+    @test public getPageInfo() {
+        const api = new MockApi()
+        const getPageInfo = new GetPageInfo(api)
+        getPageInfo.get('444.hu').then((page) => {
+            assert.equal('444.hu', page.slug)
+            assert.equal('444', page.name)
         })
     }
 
