@@ -4,9 +4,22 @@
   "main": "server.js",
   "author": "Levente Löki <leventeloki@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^5.0.1",
+    "koa": "^2.5.0",
+    "koa-json": "^2.0.2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^4.0.2",
+    "lodash": "^4.17.5"
+  },
   "devDependencies": {
     "@types/core-js": "^0.9.46",
     "@types/fb": "^0.0.23",
+    "@types/koa": "^2.0.44",
+    "@types/koa-json": "^2.0.18",
+    "@types/koa-router": "^7.0.27",
+    "@types/koa-static": "^4.0.0",
     "@types/node": "^9.6.1",
     "chai": "^4.1.2",
     "mocha": "^5.0.5",
@@ -27,18 +40,5 @@
     "test": "mocha build/test",
     "watch-test": "mocha --watch build/test",
     "lint": "tslint -c tslint.json src/**/*.ts src/**/**/*.ts test/**/*.ts"
-  },
-  "dependencies": {
-    "@types/koa": "^2.0.44",
-    "@types/koa-json": "^2.0.18",
-    "@types/koa-router": "^7.0.27",
-    "@types/koa-static": "^4.0.0",
-    "axios": "^0.18.0",
-    "dotenv": "^5.0.1",
-    "koa": "^2.5.0",
-    "koa-json": "^2.0.2",
-    "koa-router": "^7.4.0",
-    "koa-static": "^4.0.2",
-    "lodash": "^4.17.5"
   }
 }
