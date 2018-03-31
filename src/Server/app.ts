@@ -10,15 +10,15 @@ import Dic from './DependencyInjection/Dic'
 export function run() {
     const dic = new Dic(config)
     const pageInfo = dic.getGetPageInfo()
-    pageInfo.get('444.hu').then((page) => {
-        console.info(page)
-    })
-    pageInfo.get('indexhu').then((page) => {
-        console.info(page)
-    })
-    pageInfo.get('hvghu').then((page) => {
-        console.info(page)
-    })
+    // pageInfo.get('444.hu').then((page) => {
+    //     console.info(page)
+    // })
+    // pageInfo.get('indexhu').then((page) => {
+    //     console.info(page)
+    // })
+    // pageInfo.get('hvghu').then((page) => {
+    //     console.info(page)
+    // })
     // pageInfo.get('officialknows').then((page) => {
     //     console.info(page)
     // })

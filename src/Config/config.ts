@@ -11,7 +11,7 @@ const config: AppConfig = {
         version: 'v2.12'
     },
 
-    mock: true
+    mock: 'true' === process.env.MOCK
 
 }
 
