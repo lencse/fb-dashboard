@@ -18,7 +18,8 @@ const config: AppConfig = {
         }
     },
 
-    port: 6810
+    port: Number.parseInt(process.env.PORT)
+
 }
 
 export default config
