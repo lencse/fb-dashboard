@@ -4,7 +4,7 @@ import UrlGenerator from '../../src/Server/FacebookApi/WebApi/UrlGenerator'
 import MockWeb from './Mock/MockWeb'
 import WebApi from '../../src/Server/Adapter/FacebookApi/WebApi'
 import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
-import GetPageInfo from '../../src/Server/FacebookApi/GetPageInfo'
+import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
 
 @suite
 export default class ApiTest {
@@ -34,7 +34,7 @@ export default class ApiTest {
 
     @test public getPageInfo() {
         const api = new MockApi()
-        const getPageInfo = new GetPageInfo(api)
+        const getPageInfo = new PageInfoApi(api)
         getPageInfo.get('444.hu').then((page) => {
             assert.equal('444.hu', page.slug)
             assert.equal('444', page.name)

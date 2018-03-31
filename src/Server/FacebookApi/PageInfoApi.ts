@@ -1,11 +1,11 @@
-import Page from '../../Entity/Page/Page'
+import PageInfo from '../../Entity/Page/PageInfo'
 import Api from './WebApi/Api'
 
-export default class GetPageInfo {
+export default class PageInfoApi {
 
     constructor(private api: Api) {}
 
-    public get(slug: string): Promise<Page> {
+    public get(slug: string): Promise<PageInfo> {
         return this.api.call(
             `/${slug}`,
             {fields: 'picture{url},name,id,username'}

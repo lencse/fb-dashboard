@@ -1,4 +1,4 @@
-export default interface Page {
+export default interface PageInfo {
 
     slug: string
 

@@ -5,7 +5,7 @@ import UrlGenerator from '../FacebookApi/WebApi/UrlGenerator'
 import Api from '../FacebookApi/WebApi/Api'
 import MockApi from '../Adapter/FacebookApi/MockApi'
 import WebApi from '../Adapter/FacebookApi/WebApi'
-import GetPageInfo from '../FacebookApi/GetPageInfo'
+import PageInfoApi from '../FacebookApi/PageInfoApi'
 
 // tslint:disable:member-ordering
 
@@ -32,9 +32,9 @@ export default class Dic {
         )
     }
 
-    private getPageInfo: GetPageInfo
-    public getGetPageInfo(): GetPageInfo {
-        return this.getPageInfo ? this.getPageInfo : this.getPageInfo = new GetPageInfo(this.getApi())
+    private pageInfoApi: PageInfoApi
+    public getPageInfoApi(): PageInfoApi {
+        return this.pageInfoApi ? this.pageInfoApi : this.pageInfoApi = new PageInfoApi(this.getApi())
     }
 
 }
