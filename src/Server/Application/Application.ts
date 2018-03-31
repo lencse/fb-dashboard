@@ -4,19 +4,11 @@ import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as json from 'koa-json'
 import Webserver from './Webserver'
+import Store from '../DataStore/Store'
 
 export default class Application {
 
-    private dataStore = {
-        mainPage: {
-            info: {
-                slug: '',
-                id: '',
-                name: '',
-                profilePic: ''
-            }
-        }
-    }
+    private dataStore: DataStore = Store.default()
 
     constructor(
         private mainPageInfoLoader: MainPageInfoLoader,

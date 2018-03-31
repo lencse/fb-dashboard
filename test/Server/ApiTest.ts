@@ -7,6 +7,7 @@ import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
 import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../../src/Server/Loader/MainPageInfoLoader'
 import DataStore from '../../src/Entity/DataStore'
+import Store from '../../src/Server/DataStore/Store'
 
 @suite
 export default class ApiTest {
@@ -47,7 +48,7 @@ export default class ApiTest {
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
         const loader = new MainPageInfoLoader('444.hu', getPageInfo)
-        loader.load(new DataStore()).then((store) => {
+        loader.load(Store.default()).then((store) => {
             assert.equal('444', store.mainPage.info.name)
         })
     }
