@@ -8,6 +8,8 @@ import WebApi from '../Adapter/FacebookApi/WebApi'
 import PageInfoApi from '../FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../Loader/MainPageInfoLoader'
 import Application from '../Application/Application'
+import Webserver from '../Application/Webserver'
+import KoaWebserver from '../Adapter/Application/KoaWebserver'
 
 // tslint:disable:member-ordering
 
@@ -50,7 +52,17 @@ export default class Dic {
     public getApplication(): Application {
         return this.application ?
             this.application :
-            this.application = new Application(this.getMainPageInfoLoader())
+            this.application = new Application(
+                this.getMainPageInfoLoader(),
+                this.getWebserver()
+            )
+    }
+
+    private webserver: Webserver
+    public getWebserver(): Webserver {
+        return this.webserver ?
+            this.webserver :
+            this.webserver = new KoaWebserver(this.config.port)
     }
 
 }

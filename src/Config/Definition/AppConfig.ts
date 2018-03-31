@@ -8,4 +8,6 @@ export default interface AppConfig {
 
     pages: PagesConfig
 
+    port: number
+
 }

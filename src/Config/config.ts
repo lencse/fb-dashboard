@@ -16,7 +16,9 @@ const config: AppConfig = {
         main: {
             slug: '444.hu'
         }
-    }
+    },
+
+    port: 6810
 }
 
 export default config
