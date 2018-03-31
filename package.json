@@ -22,9 +22,8 @@
     "build-typescript": "tsc -p . --outDir ./build",
     "watch": "yarn clean-build && yarn build-typescript && (yarn watch-typescript)",
     "watch-typescript": "tsc -p . --outDir ./build --watch --pretty",
-    "test": "yarn test-server",
-    "test-backend": "mocha build/test/Server",
-    "watch-test-backend": "mocha --watch build/test/Server",
+    "test": "mocha build/test",
+    "watch-test": "mocha --watch build/test",
     "lint": "tslint -c tslint.json src/**/*.ts src/**/**/*.ts test/**/*.ts"
   },
   "dependencies": {
