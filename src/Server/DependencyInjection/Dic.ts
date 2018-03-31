@@ -6,6 +6,8 @@ import Api from '../FacebookApi/WebApi/Api'
 import MockApi from '../Adapter/FacebookApi/MockApi'
 import WebApi from '../Adapter/FacebookApi/WebApi'
 import PageInfoApi from '../FacebookApi/PageInfoApi'
+import MainPageInfoLoader from '../Loader/MainPageInfoLoader'
+import Application from '../Application/Application'
 
 // tslint:disable:member-ordering
 
@@ -35,6 +37,20 @@ export default class Dic {
     private pageInfoApi: PageInfoApi
     public getPageInfoApi(): PageInfoApi {
         return this.pageInfoApi ? this.pageInfoApi : this.pageInfoApi = new PageInfoApi(this.getApi())
+    }
+
+    private mainPageInfoLoader: MainPageInfoLoader
+    public getMainPageInfoLoader(): MainPageInfoLoader {
+        return this.mainPageInfoLoader ?
+            this.mainPageInfoLoader :
+            this.mainPageInfoLoader = new MainPageInfoLoader(this.config.pages.main.slug, this.getPageInfoApi())
+    }
+
+    private application: Application
+    public getApplication(): Application {
+        return this.application ?
+            this.application :
+            this.application = new Application(this.getMainPageInfoLoader())
     }
 
 }
