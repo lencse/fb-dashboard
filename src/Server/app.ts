@@ -5,5 +5,4 @@ export function run() {
     const dic = new Dic(config)
     const app = dic.getApplication()
     app.run()
-
 }
