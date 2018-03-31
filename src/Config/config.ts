@@ -1,5 +1,5 @@
 import { config as dotenvInit } from 'dotenv'
-import AppConfig from './AppConfig'
+import AppConfig from './Definition/AppConfig'
 
 dotenvInit()
 
