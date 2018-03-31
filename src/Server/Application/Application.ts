@@ -7,7 +7,16 @@ import Webserver from './Webserver'
 
 export default class Application {
 
-    private dataStore = new DataStore()
+    private dataStore = {
+        mainPage: {
+            info: {
+                slug: '',
+                id: '',
+                name: '',
+                profilePic: ''
+            }
+        }
+    }
 
     constructor(
         private mainPageInfoLoader: MainPageInfoLoader,

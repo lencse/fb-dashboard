@@ -1,12 +1,7 @@
-export default class DataStore {
+import MainPage from './MainPage'
 
-    public mainPage = {
-        info: {
-            slug: '',
-            id: '',
-            name: '',
-            profilePic: ''
-        }
-    }
+export default interface DataStore {
+
+     mainPage: MainPage
 
 }
