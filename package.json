@@ -27,8 +27,12 @@
     "lint": "tslint -c tslint.json src/**/*.ts src/**/**/*.ts test/**/*.ts"
   },
   "dependencies": {
+    "@types/koa": "^2.0.44",
+    "@types/koa-router": "^7.0.27",
     "axios": "^0.18.0",
     "dotenv": "^5.0.1",
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
     "lodash": "^4.17.5"
   }
 }
