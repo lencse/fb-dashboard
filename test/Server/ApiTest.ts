@@ -1,8 +1,8 @@
 import { suite, test, slow, timeout, skip, only } from 'mocha-typescript'
 import { assert } from 'chai'
 import UrlGenerator from '../../src/Server/FacebookApi/WebApi/UrlGenerator'
-import MockWeb from './Mock/MockWeb';
-import WebApi from '../../src/Server/FacebookApi/WebApi/WebApi';
+import MockWeb from './Mock/MockWeb'
+import WebApi from '../../src/Server/Adapter/FacebookApi/WebApi'
 
 @suite
 export default class ApiTest {
