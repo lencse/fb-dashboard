@@ -1,1 +1,1 @@
-console.info(5)
+console.info(2)
