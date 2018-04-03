@@ -31,11 +31,21 @@ const extra = devMode ?
         ]
     }
 
+const filenames = {
+    js: devMode ? '[name].js' : '[name].[hash].js',
+    css: devMode ? '[name].css' : '[name].[contentHash].css'
+}
+
 module.exports = webpackMerge(
     {
-        entry: './build/src/Frontend/main.js',
+        entry: [
+            './build/src/Frontend/main.js',
+            // './styles/main.css',
+            './node_modules/material-design-lite/src/material-design-lite.scss'
+            // './node_modules/material-design-lite/material.min.css'
+        ],
         output: {
-            filename: 'main.js',
+            filename: filenames.js,
             path: path.resolve(__dirname, dirs.dist)
         },
         plugins: [
@@ -45,6 +55,25 @@ module.exports = webpackMerge(
                 filename: 'index.html',
                 inject: 'body'
             })
-        ]
+        ],
+        module: {
+            rules: [
+                {
+                    test: /\.css$/,
+                    use: [
+                        'style-loader',
+                        'css-loader'
+                    ]
+                },
+                {
+                    test: /\.scss$/,
+                    use: [
+                        'style-loader',
+                        'css-loader',
+                        'sass-loader'
+                    ]
+                }
+            ]
+        }
     }, extra
 )
