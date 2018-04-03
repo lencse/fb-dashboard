@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const Handlebars = require('handlebars')
+const fs = require('fs')
+const commandLineArgs = require('command-line-args')
+const mkdirp = require('mkdirp')
+
+const args = commandLineArgs([
+    { name: 'dev', type: Boolean }
+])
+
+const devMode = true === args.dev
+
+const template = fs.readFileSync('views/index.hbs').toString()
+const html = Handlebars.compile(template)({devMode})
+
+mkdirp('build/views')
+
+fs.writeFileSync('build/views/index.ejs', html)

@@ -14,10 +14,11 @@ const devMode = true === args.watch
 
 const dirs = {
     dist: 'public',
-    views: 'views'
+    views: 'build/views'
 }
 
-const extra = devMode ? {
+const extra = devMode ?
+    {
         mode: 'development',
         devtool: 'inline-source-map',
         plugins: [
@@ -40,7 +41,7 @@ module.exports = webpackMerge(
         plugins: [
             new CleanWebpackPlugin([dirs.dist]),
             new HtmlWebpackPlugin({
-                template: `${dirs.views}/index.hbs`,
+                template: `${dirs.views}/index.ejs`,
                 filename: 'index.html',
                 inject: 'body'
             })
