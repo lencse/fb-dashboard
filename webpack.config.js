@@ -30,7 +30,16 @@ const extra = devMode ?
     } : {
         mode: 'production',
         plugins: [
-            new UglifyJsPlugin()
+            new UglifyJsPlugin(),
+            new OptimizeCssPlugin({
+                cssProcessor: cssnano,
+                cssProcessorOptions: {
+                    discardComments: {
+                        removeAll: true
+                    }
+                },
+                canPrint: true
+            })
         ]
     }
 
@@ -56,16 +65,7 @@ module.exports = webpackMerge(
                 filename: 'index.html',
                 inject: 'body'
             }),
-            new ExtractTextPlugin(filenames.css),
-            new OptimizeCssPlugin({
-                cssProcessor: cssnano,
-                cssProcessorOptions: {
-                    discardComments: {
-                        removeAll: true
-                    }
-                },
-                canPrint: true
-            })
+            new ExtractTextPlugin(filenames.css)
         ],
         module: {
             rules: [
