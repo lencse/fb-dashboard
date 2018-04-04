@@ -6,6 +6,8 @@ const commandLineArgs = require('command-line-args')
 const webpackMerge = require('webpack-merge')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin')
+const cssnano = require('cssnano')
 
 const args = commandLineArgs([
     { name: 'watch', type: Boolean }
@@ -54,7 +56,16 @@ module.exports = webpackMerge(
                 filename: 'index.html',
                 inject: 'body'
             }),
-            new ExtractTextPlugin(filenames.css)
+            new ExtractTextPlugin(filenames.css),
+            new OptimizeCssPlugin({
+                cssProcessor: cssnano,
+                cssProcessorOptions: {
+                    discardComments: {
+                        removeAll: true
+                    }
+                },
+                canPrint: true
+            })
         ],
         module: {
             rules: [
