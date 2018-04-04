@@ -7,7 +7,7 @@ import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
 import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../../src/Server/Loader/MainPageInfoLoader'
 import DataStore from '../../src/Entity/DataStore'
-import Store from '../../src/Server/DataStore/Store'
+import Store from '../../src/Entity/Store'
 
 @suite
 export default class ApiTest {

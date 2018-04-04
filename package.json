@@ -62,7 +62,7 @@
     "build-views-dev": "./compile-views --dev",
     "watch-views": "./compile-views --watch",
     "build-webpack": "webpack",
-    "watch": "yarn clean-build && yarn build-typescript && yarn build-views-dev && (yarn watch-views && yarn watch-typescript & yarn watch-server & yarn watch-webpack)",
+    "watch": "yarn clean-build && yarn build-typescript && yarn build-views-dev && (yarn watch-views & yarn watch-typescript & yarn watch-server & yarn watch-webpack)",
     "watch-server": "nodemon server.js",
     "watch-webpack": "webpack --watch",
     "watch-typescript": "tsc -p . --outDir ./build --watch --pretty",

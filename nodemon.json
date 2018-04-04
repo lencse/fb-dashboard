@@ -1,6 +1,7 @@
 {
     "ignore": [
         "build/src/Frontend",
+        "src",
         "public"
     ]
 }

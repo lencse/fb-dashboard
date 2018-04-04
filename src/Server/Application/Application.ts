@@ -4,7 +4,7 @@ import * as Koa from 'koa'
 import * as Router from 'koa-router'
 import * as json from 'koa-json'
 import Webserver from './Webserver'
-import Store from '../DataStore/Store'
+import Store from '../../Entity/Store'
 
 export default class Application {
 

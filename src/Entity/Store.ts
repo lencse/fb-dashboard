@@ -1,4 +1,4 @@
-import DataStore from '../../Entity/DataStore'
+import DataStore from './DataStore'
 
 export default class Store {
 
