@@ -12,7 +12,7 @@ export default class Main extends React.Component<{}, DataStore> implements Stor
 
     public render() {
         return (
-            <Layout />
+            <Layout data={ this.state } />
         )
     }
 

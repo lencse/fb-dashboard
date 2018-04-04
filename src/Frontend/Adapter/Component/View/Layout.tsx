@@ -1,6 +1,13 @@
 import * as React from 'react'
+import DataStore from '../../../../Entity/DataStore'
 
-export default class Layout extends React.Component<{}, {}> {
+// export interface LayoutProps {
+
+//     data:
+
+// }
+
+export default class Layout extends React.Component<{ data: DataStore }, {}> {
 
     public render() {
         return (
