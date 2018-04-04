@@ -19,6 +19,7 @@ export default class Main extends React.Component<{}, DataStore> implements Stor
     public init(initial: DataStore): void {
         this.state = initial
     }
+
     public update(updated: DataStore): void {
         this.setState(updated)
     }

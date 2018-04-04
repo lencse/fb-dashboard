@@ -14,9 +14,7 @@ export default class Frontend {
 
     public run(): void {
         this.renderer.attach()
-        this.loader.load().then((data) => {
-            this.store.load(data)
-        })
+        this.loader.init((data: DataStore) => this.store.load(data))
     }
 
 }

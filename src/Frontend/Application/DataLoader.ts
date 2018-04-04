@@ -2,6 +2,6 @@ import DataStore from '../../Entity/DataStore'
 
 export default interface DataLoader {
 
-    load(): Promise<DataStore>
+    init(onLoad: (data: DataStore) => void): void
 
 }
