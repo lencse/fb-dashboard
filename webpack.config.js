@@ -5,6 +5,7 @@ const LiveReloadPlugin = require('webpack-livereload-plugin')
 const commandLineArgs = require('command-line-args')
 const webpackMerge = require('webpack-merge')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const args = commandLineArgs([
     { name: 'watch', type: Boolean }
@@ -33,16 +34,14 @@ const extra = devMode ?
 
 const filenames = {
     js: devMode ? '[name].js' : '[name].[hash].js',
-    css: devMode ? '[name].css' : '[name].[contentHash].css'
+    css: devMode ? '[name].css' : '[name].[hash].css'
 }
 
 module.exports = webpackMerge(
     {
         entry: [
             './build/src/Frontend/main.js',
-            // './styles/main.css',
             './node_modules/material-design-lite/src/material-design-lite.scss'
-            // './node_modules/material-design-lite/material.min.css'
         ],
         output: {
             filename: filenames.js,
@@ -54,24 +53,17 @@ module.exports = webpackMerge(
                 template: `${dirs.views}/index.ejs`,
                 filename: 'index.html',
                 inject: 'body'
-            })
+            }),
+            new ExtractTextPlugin(filenames.css)
         ],
         module: {
             rules: [
                 {
-                    test: /\.css$/,
-                    use: [
-                        'style-loader',
-                        'css-loader'
-                    ]
-                },
-                {
                     test: /\.scss$/,
-                    use: [
-                        'style-loader',
-                        'css-loader',
-                        'sass-loader'
-                    ]
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: ['css-loader', 'sass-loader']
+                    })
                 }
             ]
         }
