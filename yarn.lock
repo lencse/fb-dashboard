@@ -57,10 +57,6 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/fb@^0.0.23":
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/@types/fb/-/fb-0.0.23.tgz#8f601579bf41f968c5a55150f578e66dac37dcf8"
-
 "@types/http-assert@*":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@types/http-assert/-/http-assert-1.2.2.tgz#17dfe5a82184a8898935d96fe2eaedd37d22d9a4"

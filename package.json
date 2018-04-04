@@ -15,7 +15,6 @@
   },
   "devDependencies": {
     "@types/core-js": "^0.9.46",
-    "@types/fb": "^0.0.23",
     "@types/koa": "^2.0.44",
     "@types/koa-json": "^2.0.18",
     "@types/koa-router": "^7.0.27",
@@ -54,8 +53,9 @@
     "build-typescript": "tsc -p . --outDir ./build",
     "build-views": "./compile-views",
     "build-views-dev": "./compile-views --dev",
+    "watch-views": "./compile-views --watch",
     "build-webpack": "webpack",
-    "watch": "yarn clean-build && yarn build-typescript && yarn build-views-dev && (yarn watch-typescript & yarn watch-server & yarn watch-webpack)",
+    "watch": "yarn clean-build && yarn build-typescript && yarn build-views-dev && (yarn watch-views && yarn watch-typescript & yarn watch-server & yarn watch-webpack)",
     "watch-server": "nodemon server.js",
     "watch-webpack": "webpack --watch",
     "watch-typescript": "tsc -p . --outDir ./build --watch --pretty",
