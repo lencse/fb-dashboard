@@ -52,6 +52,7 @@ module.exports = webpackMerge(
     {
         entry: [
             './build/src/Frontend/main.js',
+            './node_modules/material-design-lite/material.min.js',
             './node_modules/material-design-lite/src/material-design-lite.scss'
         ],
         output: {
