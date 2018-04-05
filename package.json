@@ -13,8 +13,7 @@
     "koa": "^2.5.0",
     "koa-json": "^2.0.2",
     "koa-router": "^7.4.0",
-    "koa-static": "^4.0.2",
-    "lodash": "^4.17.5"
+    "koa-static": "^4.0.2"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.46",
@@ -68,6 +67,6 @@
     "watch-typescript": "tsc -p . --outDir ./build --watch --pretty",
     "test": "mocha build/test",
     "watch-test": "mocha --watch build/test",
-    "lint": "tslint -c tslint.json src/**/*.ts src/**/**/*.ts test/**/*.ts"
+    "lint": "tslint -c tslint.json -p ."
   }
 }

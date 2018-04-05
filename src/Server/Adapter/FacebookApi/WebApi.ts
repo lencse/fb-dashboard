@@ -1,4 +1,3 @@
-import Axios from 'axios'
 import Api from '../../FacebookApi/WebApi/Api'
 import Web from '../../FacebookApi/WebApi/Web'
 import UrlGenerator from '../../FacebookApi/WebApi/UrlGenerator'

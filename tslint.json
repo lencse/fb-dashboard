@@ -33,7 +33,8 @@
         "no-console": [
             true, "log"
         ],
-        "max-line-length": [true, 280]
+        "max-line-length": [true, 120],
+        "no-unused-variable": true
     },
     "rulesDirectory": []
 }

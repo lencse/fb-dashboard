@@ -1,6 +1,5 @@
 import Renderer from './Renderer'
 import DataStore from '../../Entity/DataStore'
-import Store from '../../Entity/Store'
 import DataLoader from './DataLoader'
 import { FrontendStore } from '../Store/FrontendStore'
 

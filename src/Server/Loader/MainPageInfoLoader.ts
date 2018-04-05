@@ -1,7 +1,6 @@
 import DataStore from '../../Entity/DataStore'
 import Loader from './Loader'
 import PageInfoApi from '../FacebookApi/PageInfoApi'
-import { assign } from 'lodash'
 
 export default class MainPageInfoLoader implements Loader {
 
@@ -10,17 +9,7 @@ export default class MainPageInfoLoader implements Loader {
         private pageInfoApi: PageInfoApi
     ) {}
 
-    public load(dataStore: DataStore): Promise<DataStore> {
-        return this.pageInfoApi.get(this.mainPageSlug).then((response) => {
-            return assign({}, dataStore, {
-                mainPage: {
-                    info: response
-                }
-            })
-        })
-    }
-
-    public loadAndWrite(dataStore: DataStore): Promise<void> {
+    public load(dataStore: DataStore): Promise<void> {
         return this.pageInfoApi.get(this.mainPageSlug).then((response) => {
             dataStore.mainPage.info = response
         })

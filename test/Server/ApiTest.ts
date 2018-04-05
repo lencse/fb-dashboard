@@ -1,4 +1,4 @@
-import { suite, test, slow, timeout, skip, only } from 'mocha-typescript'
+import { suite, test } from 'mocha-typescript'
 import { assert } from 'chai'
 import UrlGenerator from '../../src/Server/FacebookApi/WebApi/UrlGenerator'
 import MockWeb from './Mock/MockWeb'
@@ -7,7 +7,6 @@ import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
 import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../../src/Server/Loader/MainPageInfoLoader'
 import RivalPagesInfoLoader from '../../src/Server/Loader/RivalPagesInfoLoader'
-import DataStore from '../../src/Entity/DataStore'
 import Store from '../../src/Entity/Store'
 
 @suite
@@ -50,7 +49,7 @@ export default class ApiTest {
         const getPageInfo = new PageInfoApi(api)
         const loader = new MainPageInfoLoader('444.hu', getPageInfo)
         const store = Store.default()
-        loader.loadAndWrite(store).then(() => {
+        loader.load(store).then(() => {
             assert.equal('444', store.mainPage.info.name)
         })
     }
@@ -60,7 +59,7 @@ export default class ApiTest {
         const getPageInfo = new PageInfoApi(api)
         const loader = new RivalPagesInfoLoader([{slug: 'indexhu'}, { slug: 'hvghu' }], getPageInfo)
         const store = Store.default()
-        loader.loadAndWrite(store).then(() => {
+        loader.load(store).then(() => {
             assert.equal(2, store.rivalPages.length)
         })
     }

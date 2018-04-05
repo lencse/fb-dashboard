@@ -1,8 +1,5 @@
 import DataStore from '../../Entity/DataStore'
 import Loader from '../Loader/Loader'
-import * as Koa from 'koa'
-import * as Router from 'koa-router'
-import * as json from 'koa-json'
 import Webserver from './Webserver'
 import Store from '../../Entity/Store'
 
@@ -16,7 +13,7 @@ export default class Application {
     ) {}
 
     public run(): void {
-        this.loaders.map((loader) => loader.loadAndWrite(this.dataStore))
+        this.loaders.map((loader) => loader.load(this.dataStore))
         this.webserver.dataStore('/api/v1/data', () => this.dataStore)
         this.webserver.static('public')
     }

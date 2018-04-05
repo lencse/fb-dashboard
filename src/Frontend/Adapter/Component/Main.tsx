@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Layout from './View/Layout'
 import DataStore from '../../../Entity/DataStore'
-import { FrontendStore, StoreSubscriber, frontendStore } from '../../Store/FrontendStore'
+import { StoreSubscriber, frontendStore } from '../../Store/FrontendStore'
 
 export default class Main extends React.Component<{}, DataStore> implements StoreSubscriber {
 
