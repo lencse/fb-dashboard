@@ -11,7 +11,8 @@ export default class Store {
                     name: '',
                     profilePic: ''
                 }
-            }
+            },
+            rivalPages: []
         }
     }
 

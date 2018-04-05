@@ -7,6 +7,7 @@ import MockApi from '../Adapter/FacebookApi/MockApi'
 import WebApi from '../Adapter/FacebookApi/WebApi'
 import PageInfoApi from '../FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../Loader/MainPageInfoLoader'
+import RivalPagesInfoLoader from '../Loader/RivalPagesInfoLoader'
 import Application from '../Application/Application'
 import Webserver from '../Application/Webserver'
 import KoaWebserver from '../Adapter/Application/KoaWebserver'
@@ -59,12 +60,25 @@ export default class Dic {
             )
     }
 
+    private rivalPagesInfoLoader: RivalPagesInfoLoader
+    public getRivalPagesInfoLoader(): RivalPagesInfoLoader {
+        return this.rivalPagesInfoLoader ?
+            this.rivalPagesInfoLoader :
+            this.rivalPagesInfoLoader = new RivalPagesInfoLoader(
+                this.config.pages.rivals,
+                this.getPageInfoApi()
+            )
+    }
+
     private application: Application
     public getApplication(): Application {
         return this.application ?
             this.application :
             this.application = new Application(
-                this.getMainPageInfoLoader(),
+                [
+                    this.getMainPageInfoLoader(),
+                    this.getRivalPagesInfoLoader()
+                ],
                 this.getWebserver()
             )
     }

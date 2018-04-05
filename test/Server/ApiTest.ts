@@ -6,6 +6,7 @@ import WebApi from '../../src/Server/Adapter/FacebookApi/WebApi'
 import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
 import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../../src/Server/Loader/MainPageInfoLoader'
+import RivalPagesInfoLoader from '../../src/Server/Loader/RivalPagesInfoLoader'
 import DataStore from '../../src/Entity/DataStore'
 import Store from '../../src/Entity/Store'
 
@@ -48,8 +49,19 @@ export default class ApiTest {
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
         const loader = new MainPageInfoLoader('444.hu', getPageInfo)
-        loader.load(Store.default()).then((store) => {
+        const store = Store.default()
+        loader.loadAndWrite(store).then(() => {
             assert.equal('444', store.mainPage.info.name)
+        })
+    }
+
+    @test public rivalPagesInfoLoader() {
+        const api = new MockApi()
+        const getPageInfo = new PageInfoApi(api)
+        const loader = new RivalPagesInfoLoader([{slug: 'indexhu'}, { slug: 'hvghu' }], getPageInfo)
+        const store = Store.default()
+        loader.loadAndWrite(store).then(() => {
+            assert.equal(2, store.rivalPages.length)
         })
     }
 

@@ -13,7 +13,7 @@ export default class PageInfoApi {
             return {
                 name: responseData.name,
                 id: responseData.id,
-                slug: responseData.username,
+                slug,
                 profilePic: responseData.picture.data.url
             }
         })

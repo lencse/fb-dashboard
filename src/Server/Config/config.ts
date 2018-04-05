@@ -13,9 +13,15 @@ const config: AppConfig = {
     mock: 'true' === process.env.MOCK,
 
     pages: {
+
         main: {
             slug: '444.hu'
-        }
+        },
+
+        rivals: [
+            { slug: 'indexhu' },
+            { slug: 'hvghu' }
+        ]
     },
 
     port: Number.parseInt(process.env.PORT)

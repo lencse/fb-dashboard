@@ -4,4 +4,6 @@ export default interface PagesConfig {
 
     main: PageConfig
 
+    rivals: PageConfig[]
+
 }
