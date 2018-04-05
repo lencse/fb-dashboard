@@ -6,15 +6,11 @@ export default class MainPageView extends React.Component<{page: MainPage}, {}> 
     public render() {
         const info = this.props.page.info
         return (
-            <div className='mdl-card mdl-shadow--2dp'>
-                <div className='mdl-card__title'>
-                    <h2 className='mdl-card__title-text'>
-                        <img src={ info.profilePic } alt='' className='profile-pic' />
-                        { info.name }
-                    </h2>
-                </div>
-                <div className='mdl-card__supporting-text'>
-                </div>
+            <div className='mdl-cell--4-col mdl-cell--4-col-phone'>
+                <h2>
+                    <img src={ info.profilePic } alt='' className='profile-pic' />
+                    { info.name }
+                </h2>
             </div>
         )
     }
