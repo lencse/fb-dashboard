@@ -18,7 +18,6 @@ export default class ServerDataLoader implements DataLoader {
     private load(onLoad: (data: DataStore) => void): void {
         fetch('/api/v1/data')
             .then((response) => response.json())
-            .then((data) => Promise.resolve(data))
             .then((result) => onLoad(result))
     }
 
