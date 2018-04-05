@@ -11,7 +11,9 @@ export default class Layout extends React.Component<{ data: DataStore }, {}> {
                 <main className='mdl-layout__content mdl-color--grey-100'>
                     <MainPageView page={ this.props.data.mainPage } />
                     {
-                        this.props.data.rivalPages.map((rivalPage) => <RivalPageView page={ rivalPage } key={ rivalPage.info.slug } />)
+                        this.props.data.rivalPages.map(
+                            (rivalPage) => <RivalPageView page={ rivalPage } key={ rivalPage.info.slug } />
+                        )
                     }
                 </main>
             </div>

@@ -14,9 +14,7 @@ const config: AppConfig = {
 
     pages: {
 
-        main: {
-            slug: '444.hu'
-        },
+        main: { slug: '444.hu' },
 
         rivals: [
             { slug: 'indexhu' },
