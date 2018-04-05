@@ -36,15 +36,17 @@ const compiler = {
         fs.writeFileSync(path.resolve(this.config.targetDir, this.config.targetFile), this.getHtml())
     },
 
-    compile() {
-        if (!this.watch) {
-            this.writeView()
-            return
-        }
+    watchFiles() {
         fs.watch(this.config.sourceFile, (event, fileName) => {
             console.info(`${fileName} updated`)
             this.writeView()
         })
+    },
+
+    compile() {
+        this.watch ?
+            this.watchFiles() :
+            this.writeView()
     }
 
 }

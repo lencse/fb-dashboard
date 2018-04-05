@@ -30,7 +30,13 @@ const extra = devMode ?
     } : {
         mode: 'production',
         plugins: [
-            new UglifyJsPlugin(),
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    }
+                }
+            }),
             new OptimizeCssPlugin({
                 cssProcessor: cssnano,
                 cssProcessorOptions: {

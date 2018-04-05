@@ -27,7 +27,7 @@ export default class RivalPagesInfoLoader implements Loader {
         })
     }
 
-    public loadAndWrite(dataStore: DataStore): Promise<null> {
+    public loadAndWrite(dataStore: DataStore): Promise<void> {
         return Promise.all(
             this.config
                 .map((pageConfig) => pageConfig.slug)
@@ -37,7 +37,6 @@ export default class RivalPagesInfoLoader implements Loader {
         ).then((results) => {
             // tslint:disable-next-line:arrow-return-shorthand
             dataStore.rivalPages = results.map((info) => { return { info } } )
-            return null
         })
     }
 

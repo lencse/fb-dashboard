@@ -20,10 +20,9 @@ export default class MainPageInfoLoader implements Loader {
         })
     }
 
-    public loadAndWrite(dataStore: DataStore): Promise<null> {
+    public loadAndWrite(dataStore: DataStore): Promise<void> {
         return this.pageInfoApi.get(this.mainPageSlug).then((response) => {
             dataStore.mainPage.info = response
-            return null
         })
     }
 
