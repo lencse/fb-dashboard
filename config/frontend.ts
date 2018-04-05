@@ -1,4 +1,4 @@
-import FrontendConfig from './Definition/FrontendConfig'
+import FrontendConfig from '../src/Frontend/Config/Definition/FrontendConfig'
 
 const config: FrontendConfig = {
 
