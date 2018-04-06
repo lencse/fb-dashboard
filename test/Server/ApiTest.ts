@@ -41,6 +41,7 @@ export default class ApiTest {
         getPageInfo.get('444.hu').then((page) => {
             assert.equal('444.hu', page.slug)
             assert.equal('444', page.name)
+            assert.equal('2018-04-06T18:37:45.000Z', page.lastPostDate.toISOString())
         })
     }
 

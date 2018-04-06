@@ -4,5 +4,6 @@ export default interface PageInfo {
     id: string
     name: string
     profilePic: string
+    lastPostDate: Date
 
 }
