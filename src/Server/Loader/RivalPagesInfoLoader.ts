@@ -15,7 +15,7 @@ export default class RivalPagesInfoLoader implements Loader {
             this.config
                 .map((pageConfig) => pageConfig.slug)
                 .map(
-                    (slug) => this.pageInfoApi.get(slug).then((response) => response)
+                    (slug) => this.pageInfoApi.get(slug)
                 )
         ).then((results) => {
             // tslint:disable-next-line:arrow-return-shorthand
