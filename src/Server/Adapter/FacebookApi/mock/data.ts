@@ -6,7 +6,7 @@ const data = [
     {
         "path": "/444.hu",
         "params": {
-            "fields": "picture{url},name,id,username"
+            "fields": "picture{url},name,id,username,posts.limit(1){created_time}"
         },
         "response": {
             "picture": {
@@ -37,7 +37,7 @@ const data = [
     {
         "path": "/hvghu",
         "params": {
-            "fields": "picture{url},name,id,username"
+            "fields": "picture{url},name,id,username,posts.limit(1){created_time}"
         },
         "response": {
             "picture": {
@@ -68,7 +68,7 @@ const data = [
     {
         "path": "/indexhu",
         "params": {
-            "fields": "picture{url},name,id,username"
+            "fields": "picture{url},name,id,username,posts.limit(1){created_time}"
         },
         "response": {
             "picture": {

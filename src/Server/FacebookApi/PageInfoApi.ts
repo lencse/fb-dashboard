@@ -8,7 +8,7 @@ export default class PageInfoApi {
     public get(slug: string): Promise<PageInfo> {
         return this.api.call(
             `/${slug}`,
-            {fields: 'picture{url},name,id,username'}
+            {fields: 'picture{url},name,id,username,posts.limit(1){created_time}'}
         ).then((responseData: any) => {
             return {
                 name: responseData.name,

@@ -9,7 +9,8 @@ export default class Store {
                     slug: '',
                     id: '',
                     name: '',
-                    profilePic: ''
+                    profilePic: '',
+                    lastPostDate: new Date()
                 }
             },
             rivalPages: []
