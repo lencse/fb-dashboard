@@ -79,7 +79,8 @@ export default class Dic {
                     this.getMainPageInfoLoader(),
                     this.getRivalPagesInfoLoader()
                 ],
-                this.getWebserver()
+                this.getWebserver(),
+                this.config.refreshIntervalSec
             )
     }
 

@@ -11,4 +11,6 @@ export default interface AppConfig {
 
     port: number
 
+    refreshIntervalSec: number
+
 }

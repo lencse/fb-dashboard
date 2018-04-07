@@ -20,7 +20,9 @@ const config: AppConfig = {
         ]
     },
 
-    port: Number.parseInt(process.env.PORT)
+    port: Number.parseInt(process.env.PORT),
+
+    refreshIntervalSec: 14
 
 }
 

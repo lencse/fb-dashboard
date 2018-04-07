@@ -11,7 +11,10 @@ export default class WebApi implements Api {
 
     public call(path: string, params: any): Promise<any> {
         const url = this.url.getUrl(path, params)
-        return this.web.get(url)
+        return this.web.get(url).then((response) => {
+            // console.info('CALL', path, params, response)
+            return response
+        })
     }
 
 }

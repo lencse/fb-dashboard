@@ -1,7 +1,6 @@
 import * as React from 'react'
 import DataStore from '../../../../Entity/DataStore'
 import MainPageView from './MainPageView'
-import RivalPageView from './RivalPageView'
 
 export default class Layout extends React.Component<{ data: DataStore }, {}> {
 
@@ -13,7 +12,7 @@ export default class Layout extends React.Component<{ data: DataStore }, {}> {
                         <MainPageView page={ this.props.data.mainPage } />
                         {
                             this.props.data.rivalPages.map(
-                                (rivalPage) => <RivalPageView page={ rivalPage } key={ rivalPage.info.slug } />
+                                (rivalPage) => <MainPageView page={ rivalPage } key={ rivalPage.info.slug } />
                             )
                         }
                     </div>
