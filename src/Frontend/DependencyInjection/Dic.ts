@@ -5,6 +5,7 @@ import ServerDataLoader from '../Adapter/ServerDataLoader'
 import Frontend from '../Application/Frontend'
 import FrontendConfig from '../Config/Definition/FrontendConfig'
 import { frontendStore } from '../Store/FrontendStore'
+import DateTransformer from '../Adapter/DateTransformer'
 
 // tslint:disable:member-ordering
 
@@ -25,7 +26,7 @@ export default class Dic {
     public getDataLoader(): DataLoader {
         return this.dataLoader ?
             this.dataLoader :
-            this.dataLoader = new ServerDataLoader(this.config.refreshIntervalSec)
+            this.dataLoader = new ServerDataLoader(this.getDateTransformer(), this.config.refreshIntervalSec)
     }
 
     private frontend: Frontend
@@ -35,4 +36,10 @@ export default class Dic {
             this.frontend = new Frontend(this.getRenderer(), this.getDataLoader(), frontendStore)
     }
 
+    private dateTransformer: DateTransformer
+    public getDateTransformer(): DateTransformer {
+        return this.dateTransformer ?
+            this.dateTransformer :
+            this.dateTransformer = new DateTransformer()
+    }
 }

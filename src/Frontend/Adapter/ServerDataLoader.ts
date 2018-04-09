@@ -1,9 +1,11 @@
 import DataLoader from '../Application/DataLoader'
 import DataStore from '../../Entity/DataStore'
+import DateTransformer from './DateTransformer'
 
 export default class ServerDataLoader implements DataLoader {
 
     constructor(
+        private dateTransformer: DateTransformer,
         private intervalSec: number
     ) {}
 
@@ -18,6 +20,7 @@ export default class ServerDataLoader implements DataLoader {
     private load(onLoad: (data: DataStore) => void): void {
         fetch('/api/v1/data')
             .then((response) => response.json())
+            .then((result) => this.dateTransformer.transform(result))
             .then((result) => onLoad(result))
     }
 
