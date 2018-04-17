@@ -14,7 +14,7 @@ export default class MainPageView extends React.Component<{page: MainPage}, {}> 
                     </div>
                     <div>
                         <div className='page-title'>{ info.name }</div>
-                        <div>Utolsó poszt: { this.sinceLastPost(info) } perce</div>
+                        <div>Utolsó poszt: { this.sinceLastPost(info) }</div>
                     </div>
                 </div>
             </div>
@@ -22,11 +22,12 @@ export default class MainPageView extends React.Component<{page: MainPage}, {}> 
     }
 
     private sinceLastPost(info: PageInfo): string {
-        const mins = Math.floor((new Date().getTime() - new Date(info.lastPostDate).getTime()) / 1000 / 60)
-        const h = Math.floor(mins / 60)
-        const m = mins % 60
+        const h = Math.floor(info.minutesSinceLastPost / 60)
+        const m = info.minutesSinceLastPost % 60
 
-        return [(h < 10 ? '0' : '') + h,  (m < 10 ? '0' : '') + m].join(':')
+        return h > 0 ?
+            `${h} ó ${m} perce` :
+            `${m} perce`
     }
 
 }

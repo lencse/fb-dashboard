@@ -42,4 +42,5 @@ export default class Dic {
             this.dateTransformer :
             this.dateTransformer = new DateTransformer()
     }
+
 }
