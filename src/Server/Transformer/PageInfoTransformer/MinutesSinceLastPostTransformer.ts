@@ -1,17 +1,18 @@
 import Clock from '../../Clock/Clock'
-import PageInfoTransformer from './PageInfoTransformer'
+import PageTransformer from './PageTransformer'
 import PageInfo from '../../../Entity/Page/PageInfo'
+import Page from '../../../Entity/Page/Page'
 
-export default class MinutesSinceLastPostTransformer implements PageInfoTransformer {
+export default class MinutesSinceLastPostTransformer implements PageTransformer {
 
     constructor(
         private clock: Clock
     ) {}
 
-    public transform(info: PageInfo): void {
+    public transform(page: Page): void {
         const now = this.clock.now().getTime()
-        const lastPostDate = info.lastPostDate.getTime()
-        info.minutesSinceLastPost = Math.floor((now - lastPostDate) / 1000 / 60)
+        const lastPostDate = page.info.lastPostDate.getTime()
+        page.minutesSinceLastPost = Math.floor((now - lastPostDate) / 1000 / 60)
     }
 
 }

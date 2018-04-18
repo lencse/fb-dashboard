@@ -14,7 +14,7 @@ import KoaWebserver from '../Adapter/Application/KoaWebserver'
 import Clock from '../Clock/Clock'
 import RealClock from '../Adapter/Clock/RealClock'
 import MinutesSinceLastPostTransformer from '../Transformer/PageInfoTransformer/MinutesSinceLastPostTransformer'
-import PageTransformer from '../Transformer/PageTransformer'
+import PageDataTransformer from '../Transformer/PageDataTransformer'
 
 // tslint:disable:member-ordering
 
@@ -84,7 +84,7 @@ export default class Dic {
                     this.getRivalPagesInfoLoader()
                 ],
                 [
-                    this.getPageTransformer()
+                    this.getPageDataTransformer()
                 ],
                 this.getWebserver(),
                 this.config.refreshIntervalSec
@@ -112,11 +112,11 @@ export default class Dic {
             this.minutesSinceLastPostTransformer = new MinutesSinceLastPostTransformer(this.getClock())
     }
 
-    private pageTransformer: PageTransformer
-    public getPageTransformer(): PageTransformer {
-        return this.pageTransformer ?
-            this.pageTransformer :
-            this.pageTransformer = new PageTransformer([
+    private pageDataTransformer: PageDataTransformer
+    public getPageDataTransformer(): PageDataTransformer {
+        return this.pageDataTransformer ?
+            this.pageDataTransformer :
+            this.pageDataTransformer = new PageDataTransformer([
                 this.getMinutesSinceLastPostTransformer()
             ])
     }

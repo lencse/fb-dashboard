@@ -19,7 +19,12 @@ export default class RivalPagesInfoLoader implements Loader {
                 )
         ).then((results) => {
             // tslint:disable-next-line:arrow-return-shorthand
-            dataStore.rivalPages = results.map((info) => { return { info } } )
+            dataStore.rivalPages = results.map((info) => {
+                return {
+                    info,
+                    minutesSinceLastPost: 0
+                }
+            })
         })
     }
 

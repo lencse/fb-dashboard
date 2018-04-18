@@ -1,7 +1,4 @@
 import PageInfo from './PageInfo'
+import Page from './Page'
 
-export default interface RivalPage {
-
-    info: PageInfo
-
-}
+export default interface RivalPage extends Page {}

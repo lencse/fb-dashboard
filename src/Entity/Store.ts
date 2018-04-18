@@ -10,9 +10,9 @@ export default class Store {
                     id: '',
                     name: '',
                     profilePic: '',
-                    lastPostDate: new Date(),
-                    minutesSinceLastPost: 0
-                }
+                    lastPostDate: new Date()
+                },
+                minutesSinceLastPost: 0
             },
             rivalPages: []
         }

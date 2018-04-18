@@ -35,7 +35,8 @@
         ],
         "max-line-length": [true, 120],
         "no-unused-variable": true,
-        "forin": false
+        "forin": false,
+        "no-empty-interface": false
     },
     "rulesDirectory": []
 }
