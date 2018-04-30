@@ -1,5 +1,5 @@
-import ApiTest from './Server/ApiTest'
+import ServerTest from './Server/ServerTest'
 import LoaderTest from './Frontend/LoaderTest'
 
-export { ApiTest }
+export { ServerTest }
 export { LoaderTest }

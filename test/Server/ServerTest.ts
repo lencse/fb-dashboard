@@ -1,16 +1,15 @@
 import { suite, test } from 'mocha-typescript'
-import { assert } from 'chai'
 import UrlGenerator from '../../src/Server/FacebookApi/WebApi/UrlGenerator'
 import MockWeb from './Mock/MockWeb'
 import WebApi from '../../src/Server/Adapter/FacebookApi/WebApi'
 import MockApi from '../../src/Server/Adapter/FacebookApi/MockApi'
 import PageInfoApi from '../../src/Server/FacebookApi/PageInfoApi'
 import MainPageInfoLoader from '../../src/Server/Loader/MainPageInfoLoader'
-import RivalPagesInfoLoader from '../../src/Server/Loader/RivalPagesInfoLoader'
 import Store from '../../src/Entity/Store'
+import RivalPagesInfoLoader from '../../src/Server/Loader/RivalPagesInfoLoader'
 
 @suite
-export default class ApiTest {
+export default class ServerTest {
 
     @test public urlGenerator() {
         const generator = new UrlGenerator({
@@ -19,7 +18,7 @@ export default class ApiTest {
             token: 'TEST'
         })
         const url = generator.getUrl('/test', { param1: 'foo', param2: 'bar' })
-        assert.equal('https://test.com/v1.0/test?param1=foo&param2=bar&access_token=TEST', url)
+        expect(url).toBe('https://test.com/v1.0/test?param1=foo&param2=bar&access_token=TEST')
     }
 
     @test public webApi() {
@@ -31,37 +30,40 @@ export default class ApiTest {
         const web = new MockWeb()
         const api = new WebApi(generator, web)
         api.call('/test', { param1: 'foo', param2: 'bar' }).then((data) => {
-            assert.equal(1, data.test)
+            expect(data.test).toBe(1)
         })
     }
 
     @test public pageInfoApi() {
+        expect.assertions(3)
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
         getPageInfo.get('444.hu').then((page) => {
-            assert.equal('444.hu', page.slug)
-            assert.equal('444', page.name)
-            assert.equal('2018-04-06T18:37:45.000Z', page.lastPostDate.toISOString())
+            expect(page.slug).toBe('444.hu')
+            expect(page.name).toBe('444')
+            expect(page.lastPostDate).toEqual(new Date('2018-04-06T18:37:45.000Z'))
         })
     }
 
     @test public mainPageInfoLoader() {
+        expect.assertions(1)
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
         const loader = new MainPageInfoLoader('444.hu', getPageInfo)
         const store = Store.default()
         loader.load(store).then(() => {
-            assert.equal('444', store.mainPage.info.name)
+           expect(store.mainPage.info.name).toBe('444')
         })
     }
 
     @test public rivalPagesInfoLoader() {
+        expect.assertions(1)
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
         const loader = new RivalPagesInfoLoader([{slug: 'indexhu'}, { slug: 'hvghu' }], getPageInfo)
         const store = Store.default()
         loader.load(store).then(() => {
-            assert.equal(2, store.rivalPages.length)
+           expect(store.rivalPages.length).toBe(2)
         })
     }
 

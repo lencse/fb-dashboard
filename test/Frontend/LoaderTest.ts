@@ -1,5 +1,4 @@
 import { suite, test } from 'mocha-typescript'
-import { assert } from 'chai'
 import DateTransformer from '../../src/Frontend/Adapter/DateTransformer'
 
 @suite
@@ -23,14 +22,14 @@ export default class LoaderTest {
             }
         }
         const transformed = transformer.transform(data)
-        assert.equal('Test', transformed.something)
-        assert.equal('object', typeof transformed.testDate)
-        assert.equal('Date', transformed.testDate.constructor.name)
-        assert.equal(2018, transformed.testDate.getFullYear())
-        assert.equal('Test', transformed.obj.something)
-        assert.equal('Date', transformed.obj.otherDate.constructor.name)
-        assert.equal('Date', transformed.obj.arr[0].aDate.constructor.name)
-        assert.equal('Date', transformed.obj.arr[1].aDate.constructor.name)
+        expect(transformed.something).toBe('Test')
+        expect(typeof transformed.testDate).toBe('object')
+        expect(transformed.testDate.constructor.name).toBe('Date')
+        expect(transformed.testDate.getFullYear()).toBe(2018)
+        expect(transformed.obj.something).toBe('Test')
+        expect(transformed.obj.otherDate.constructor.name).toBe('Date')
+        expect(transformed.obj.arr[0].aDate.constructor.name).toBe('Date')
+        expect(transformed.obj.arr[1].aDate.constructor.name).toBe('Date')
     }
 
 }
