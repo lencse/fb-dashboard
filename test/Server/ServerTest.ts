@@ -22,6 +22,7 @@ export default class ServerTest {
     }
 
     @test public webApi() {
+        expect.assertions(1)
         const generator = new UrlGenerator({
             url: 'https://test.com',
             version: 'v1.0',
@@ -29,7 +30,7 @@ export default class ServerTest {
         })
         const web = new MockWeb()
         const api = new WebApi(generator, web)
-        api.call('/test', { param1: 'foo', param2: 'bar' }).then((data) => {
+        return api.call('/test', { param1: 'foo', param2: 'bar' }).then((data) => {
             expect(data.test).toBe(1)
         })
     }
@@ -38,7 +39,7 @@ export default class ServerTest {
         expect.assertions(3)
         const api = new MockApi()
         const getPageInfo = new PageInfoApi(api)
-        getPageInfo.get('444.hu').then((page) => {
+        return getPageInfo.get('444.hu').then((page) => {
             expect(page.slug).toBe('444.hu')
             expect(page.name).toBe('444')
             expect(page.lastPostDate).toEqual(new Date('2018-04-06T18:37:45.000Z'))
@@ -51,7 +52,7 @@ export default class ServerTest {
         const getPageInfo = new PageInfoApi(api)
         const loader = new MainPageInfoLoader('444.hu', getPageInfo)
         const store = Store.default()
-        loader.load(store).then(() => {
+        return loader.load(store).then(() => {
            expect(store.mainPage.info.name).toBe('444')
         })
     }
@@ -62,7 +63,7 @@ export default class ServerTest {
         const getPageInfo = new PageInfoApi(api)
         const loader = new RivalPagesInfoLoader([{slug: 'indexhu'}, { slug: 'hvghu' }], getPageInfo)
         const store = Store.default()
-        loader.load(store).then(() => {
+        return loader.load(store).then(() => {
            expect(store.rivalPages.length).toBe(2)
         })
     }
