@@ -1,4 +1,4 @@
-import PageInfo from '../../Entity/Page/PageInfo'
+import PageInfo from '../Data/PageInfo'
 import Api from './WebApi/Api'
 
 export default class PageInfoApi {
