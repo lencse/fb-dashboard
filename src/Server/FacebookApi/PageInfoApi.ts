@@ -15,8 +15,7 @@ export default class PageInfoApi {
                 id: responseData.id,
                 slug,
                 profilePic: responseData.picture.data.url,
-                lastPostDate: new Date(responseData.posts.data[0].created_time),
-                minutesSinceLastPost: 0
+                lastPostDate: new Date(responseData.posts.data[0].created_time)
             }
         })
     }

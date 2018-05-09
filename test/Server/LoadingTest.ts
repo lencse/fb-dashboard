@@ -18,8 +18,8 @@ export default class LoadingTest {
     private async testPageInfo(): Promise<PageInfo> {
         const api = new MockApi()
         const pageInfoApi = new PageInfoApi(api)
-        const pageInfoStep = new PageInfoStep(pageInfoApi, '444.hu')
-        const pageInfo = await pageInfoStep.step({})
+        const pageInfoStep = new PageInfoStep(pageInfoApi)
+        const pageInfo = await pageInfoStep.step({ slug: '444.hu' })
         expect(pageInfo.slug).toBe('444.hu')
         expect(pageInfo.name).toBe('444')
         expect(pageInfo.lastPostDate).toEqual(new Date('2018-04-06T18:37:45.000Z'))
