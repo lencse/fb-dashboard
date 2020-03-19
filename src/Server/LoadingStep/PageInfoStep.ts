@@ -1,7 +1,7 @@
 import LoadingStep from './LoadingStep'
 import PageInfo from '../Data/PageInfo'
 import PageInfoApi from '../FacebookApi/PageInfoApi'
-import PageConfig from '../Config/Definition/PageConfig';
+import PageConfig from '../Config/Definition/PageConfig'
 
 export default class PageInfoStep implements LoadingStep<{}, PageInfo> {
 
